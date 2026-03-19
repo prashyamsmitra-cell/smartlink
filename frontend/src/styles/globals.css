@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-ink-950 text-ink-100 font-body;
+    background-image: theme('backgroundImage.grid-ink');
+    background-size: theme('backgroundSize.grid');
+  }
+
+  /* scrollbar styling */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-ink-700 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-ink-500; }
+}
+
+@layer components {
+  .card {
+    @apply bg-ink-900/80 border border-ink-700/50 rounded-2xl backdrop-blur-sm;
+  }
+
+  .btn-primary {
+    @apply bg-acid text-ink-950 font-display font-semibold px-6 py-3 rounded-xl
+           hover:bg-acid-light active:scale-95 transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-acid/50;
+  }
+
+  .btn-ghost {
+    @apply bg-ink-800/60 text-ink-200 font-body font-medium px-4 py-2 rounded-xl
+           border border-ink-700/50 hover:bg-ink-700/60 hover:border-ink-600
+           active:scale-95 transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-ink-500/50;
+  }
+
+  .input {
+    @apply w-full bg-ink-900 border border-ink-700 text-ink-100 placeholder-ink-500
+           rounded-xl px-4 py-3 font-body text-sm
+           focus:outline-none focus:border-acid/60 focus:ring-2 focus:ring-acid/20
+           transition-all duration-200;
+  }
+
+  .tag {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-mono
+           bg-ink-800 border border-ink-700 text-ink-300;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-acid via-sky to-acid bg-clip-text text-transparent;
+    background-size: 200% auto;
+    animation: shine 4s linear infinite;
+  }
+
+  .glow-acid {
+    box-shadow: 0 0 20px rgba(180,255,78,0.15), 0 0 60px rgba(180,255,78,0.05);
+  }
+
+  .glow-sky {
+    box-shadow: 0 0 20px rgba(78,203,255,0.15);
+  }
+
+  @keyframes shine {
+    to { background-position: 200% center; }
+  }
+
+  /* Staggered animation utilities */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+}
