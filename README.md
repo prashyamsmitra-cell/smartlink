@@ -401,14 +401,7 @@ Tests:       30 passed, 30 total
 
 <br/>
 
-## 📄 License
 
-```
-MIT License — free to use, modify, and distribute.
-Built for learning and portfolio purposes.
-```
-
----
 
 <div align="center">
 
